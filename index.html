@@ -1,169 +1,151 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anuwat Osot | Portfolio</title>
   <style>
     body {
-      font-family: "Poppins", sans-serif;
       margin: 0;
-      padding: 0;
-      background: #f9fafb;
-      color: #333;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Poppins, sans-serif;
+      background: #fff;
+      color: #111;
+      overflow-x: hidden;
       scroll-behavior: smooth;
     }
-    header {
-      background: linear-gradient(135deg, #3b82f6, #06b6d4);
-      color: white;
-      text-align: center;
-      padding: 4rem 1rem;
-      position: relative;
-      overflow: hidden;
-    }
-    header img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      border: 4px solid white;
-      margin-bottom: 1rem;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-      transition: transform 0.4s;
-    }
-    header img:hover {
-      transform: scale(1.1) rotate(3deg);
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      animation: fadeInDown 1s ease-in-out;
-    }
-    header p {
-      font-size: 1.2rem;
-      margin-top: 0.5rem;
-      animation: fadeInUp 1.2s ease-in-out;
-    }
+
     section {
-      max-width: 900px;
-      margin: 3rem auto;
-      padding: 0 1rem;
-      opacity: 0;
-      transform: translateY(40px);
-      transition: all 0.8s ease;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      transition: all 0.8s ease-out;
     }
-    section.show {
-      opacity: 1;
-      transform: translateY(0);
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      letter-spacing: -2px;
+      margin: 0;
     }
     h2 {
-      border-bottom: 3px solid #3b82f6;
-      display: inline-block;
-      padding-bottom: 0.3rem;
-      margin-bottom: 1.5rem;
-      color: #1e3a8a;
-      font-size: 1.5rem;
+      font-size: 2rem;
+      font-weight: 500;
+      margin: 1rem 0;
+      opacity: 0.8;
     }
-    ul {
-      list-style: none;
-      padding: 0;
+    p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      line-height: 1.6;
     }
-    ul li {
-      margin-bottom: 0.7rem;
-      padding: 0.6rem;
-      background: #fff;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
+
+    /* Hero Section */
+    #hero {
+      background: #000;
+      color: #fff;
+      position: relative;
     }
-    ul li:hover {
-      transform: translateX(6px);
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    #hero h1 {
+      font-size: 5rem;
+      animation: fadeIn 2s ease forwards;
     }
-    .contact a {
-      color: #3b82f6;
-      text-decoration: none;
-      font-weight: bold;
+    #hero h2 {
+      color: #aaa;
+      animation: fadeInUp 2s ease forwards;
     }
-    .footer {
+
+    /* Skills Section */
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+      width: 100%;
+      max-width: 900px;
+    }
+    .skill-card {
+      background: #f5f5f7;
+      border-radius: 16px;
+      padding: 2rem;
+      font-size: 1.1rem;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .skill-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    /* Footer */
+    footer {
+      padding: 2rem;
+      background: #000;
+      color: #fff;
       text-align: center;
-      background: #1e293b;
-      color: white;
-      padding: 1.5rem;
-      margin-top: 3rem;
       font-size: 0.9rem;
     }
-    /* Animation keyframes */
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-40px); }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
     @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(40px); }
+      from { opacity: 0; transform: translateY(50px); }
       to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <header>
-    <img src="me.jpg" alt="Profile" />
+  <!-- Hero -->
+  <section id="hero">
     <h1>Anuwat Osot</h1>
-    <p>Computer Science Student at Kasetsart University | Full Stack & Data Enthusiast</p>
-  </header>
+    <h2>Full Stack Developer & Data Enthusiast</h2>
+  </section>
 
+  <!-- About -->
   <section>
-    <h2>About Me</h2>
+    <h1>About Me</h1>
     <p>
-      I am a final-year Computer Science student at Kasetsart University,
-      passionate about Full Stack Development and Data Science. Eager to learn,
-      adapt, and contribute to real-world software projects.
+      I am a final-year Computer Science student at Kasetsart University, passionate about 
+      Full Stack Development and Data Science. I love building interactive applications 
+      and exploring modern technologies.
     </p>
   </section>
 
+  <!-- Skills -->
   <section>
-    <h2>Skills</h2>
-    <ul>
-      <li><strong>Frontend:</strong> HTML, CSS, JavaScript, React, Flutter</li>
-      <li><strong>Backend:</strong> Node.js, PHP, Express.js</li>
-      <li><strong>Database:</strong> MySQL, PostgreSQL, MongoDB</li>
-      <li><strong>Data & AI:</strong> Python, Pandas, NumPy, TensorFlow Lite, YOLOv8</li>
-      <li><strong>Tools:</strong> Git/GitHub, Postman, Docker (basic)</li>
-    </ul>
+    <h1>Skills</h1>
+    <div class="skills">
+      <div class="skill-card">Frontend: HTML, CSS, JavaScript, React, Flutter</div>
+      <div class="skill-card">Backend: Node.js, PHP, Express.js</div>
+      <div class="skill-card">Database: MySQL, PostgreSQL, MongoDB</div>
+      <div class="skill-card">Data & AI: Python, TensorFlow Lite, YOLOv8</div>
+      <div class="skill-card">Tools: Git/GitHub, Docker, Postman</div>
+    </div>
   </section>
 
+  <!-- Projects -->
   <section>
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>Smart Vision App:</strong> Flutter-based app with YOLOv8 + TFLite for real-time obstacle detection.</li>
-      <li><strong>Library & Room Booking System:</strong> Full-stack system with MySQL + Node.js + React Native.</li>
-      <li><strong>OTP Verification System:</strong> Email-based OTP using PHP + MySQL.</li>
-    </ul>
+    <h1>Projects</h1>
+    <p><strong>Smart Vision App:</strong> Flutter app with YOLOv8 for obstacle detection.</p>
+    <p><strong>Library Booking System:</strong> Full-stack app with MySQL + Node.js.</p>
+    <p><strong>OTP Verification:</strong> Secure email-based OTP system.</p>
   </section>
 
-  <section class="contact">
-    <h2>Contact</h2>
+  <!-- Contact -->
+  <section>
+    <h1>Contact</h1>
     <p>Email: <a href="mailto:anuwat.os@ku.th">anuwat.os@ku.th</a></p>
     <p>GitHub: <a href="https://github.com/anwos25" target="_blank">github.com/anwos25</a></p>
     <p>Phone: +66 96 310 4349</p>
   </section>
 
-  <div class="footer">
-    © 2025 Anuwat Osot · Built with ❤️ using HTML, CSS & JS
-  </div>
-
-  <script>
-    // ทำให้ section แสดง animation ตอน scroll
-    const sections = document.querySelectorAll("section");
-    const revealOnScroll = () => {
-      const triggerBottom = window.innerHeight * 0.85;
-      sections.forEach(sec => {
-        const boxTop = sec.getBoundingClientRect().top;
-        if (boxTop < triggerBottom) {
-          sec.classList.add("show");
-        }
-      });
-    };
-    window.addEventListener("scroll", revealOnScroll);
-    revealOnScroll();
-  </script>
+  <footer>
+    © 2025 Anuwat Osot · Minimal Portfolio Inspired by Apple
+  </footer>
 </body>
 </html>
