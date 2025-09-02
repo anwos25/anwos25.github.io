@@ -6,140 +6,185 @@
   <title>Anuwat Osot | Portfolio</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    /* Base */
     body {
-      font-family: "Inter", sans-serif;
-      margin: 0; padding: 0;
-      background: #f9fafb; color: #111;
+      margin: 0;
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+      color: #f1f5f9;
+      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
-    a { text-decoration: none; color: inherit; }
+    h1, h2, h3 { margin: 0.5rem 0; }
+    p { opacity: 0.9; }
 
-    /* Layout */
-    .container { max-width: 1000px; margin: auto; padding: 2rem; }
-    section { margin-bottom: 4rem; }
-
-    /* Header */
-    header { text-align: center; padding: 3rem 1rem; }
-    header img {
-      width: 120px; height: 120px; border-radius: 50%;
-      margin-bottom: 1rem; box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+    /* Hero */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: radial-gradient(circle at top, #3b82f6, transparent),
+                  radial-gradient(circle at bottom, #06b6d4, transparent);
     }
-    header h1 { font-size: 2.2rem; margin: 0; }
-    header p { margin: 0.5rem 0 1rem; color: #555; }
-    .socials a {
-      margin: 0 0.5rem; font-size: 1.4rem; color: #3b82f6;
-      transition: color 0.3s;
+    .hero img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 4px solid white;
+      box-shadow: 0 0 25px rgba(59,130,246,0.8);
+      animation: float 4s ease-in-out infinite;
     }
-    .socials a:hover { color: #06b6d4; }
+    .hero h1 { font-size: 3.5rem; }
+    .hero h2 { font-size: 1.4rem; color: #cbd5e1; }
 
-    /* Section Title */
-    h2 { font-size: 1.6rem; margin-bottom: 1rem; border-left: 4px solid #3b82f6; padding-left: 0.5rem; }
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-15px); }
+    }
 
-    /* Skills Grid */
+    /* Section */
+    section { padding: 5rem 2rem; text-align: center; }
+    section h2 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      background: linear-gradient(90deg, #3b82f6, #06b6d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Skills */
     .skills {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 1rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      margin: auto;
     }
     .skill-card {
-      background: white; border-radius: 10px; padding: 1rem;
-      text-align: center; box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
+      backdrop-filter: blur(10px);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 2rem 1rem;
+      border-radius: 16px;
+      transition: transform 0.4s, box-shadow 0.4s;
     }
     .skill-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 0 30px rgba(59,130,246,0.6);
     }
-    .skill-card i { font-size: 2rem; margin-bottom: 0.5rem; color: #3b82f6; }
+    .skill-card i { font-size: 2.5rem; margin-bottom: 0.8rem; color: #3b82f6; }
 
     /* Projects */
     .projects {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      max-width: 1000px;
+      margin: auto;
     }
     .project-card {
-      background: white; border-radius: 12px; padding: 1rem;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 1.5rem;
+      border-radius: 16px;
+      text-align: left;
+      transition: all 0.3s;
     }
     .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px rgba(6,182,212,0.6);
     }
-    .project-card h3 { margin-top: 0; }
-    .tags { margin-top: 0.5rem; font-size: 0.9rem; color: #555; }
+    .project-card h3 { color: #38bdf8; }
 
-    /* Footer */
-    footer { text-align: center; padding: 2rem; background: #111; color: white; }
+    /* Contact */
+    .contact-icons {
+      display: flex; justify-content: center; gap: 2rem; margin-top: 2rem;
+    }
+    .contact-icons a {
+      font-size: 2rem;
+      color: #3b82f6;
+      transition: transform 0.3s, color 0.3s;
+    }
+    .contact-icons a:hover {
+      transform: scale(1.2);
+      color: #06b6d4;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #0f172a;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
   </style>
 </head>
 <body>
-  <header>
+  <!-- Hero -->
+  <div class="hero">
     <img src="me.jpg" alt="Profile">
     <h1>Anuwat Osot</h1>
-    <p>Computer Science Student @ Kasetsart University | Full Stack & Data Enthusiast</p>
-    <div class="socials">
+    <h2>Full Stack Developer & Data Enthusiast</h2>
+  </div>
+
+  <!-- About -->
+  <section>
+    <h2>About Me</h2>
+    <p>I am a final-year Computer Science student at Kasetsart University, passionate about
+      Full Stack Development, Data Science, and AI. I love creating modern interactive apps
+      with elegant design and smooth user experiences.</p>
+  </section>
+
+  <!-- Skills -->
+  <section>
+    <h2>Skills</h2>
+    <div class="skills">
+      <div class="skill-card"><i class="fab fa-html5"></i><p>HTML5</p></div>
+      <div class="skill-card"><i class="fab fa-css3-alt"></i><p>CSS3</p></div>
+      <div class="skill-card"><i class="fab fa-js"></i><p>JavaScript</p></div>
+      <div class="skill-card"><i class="fab fa-react"></i><p>React</p></div>
+      <div class="skill-card"><i class="fab fa-node-js"></i><p>Node.js</p></div>
+      <div class="skill-card"><i class="fas fa-database"></i><p>MySQL / PostgreSQL</p></div>
+      <div class="skill-card"><i class="fas fa-brain"></i><p>AI & Data</p></div>
+      <div class="skill-card"><i class="fab fa-docker"></i><p>Docker</p></div>
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section>
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project-card">
+        <h3>Smart Vision App</h3>
+        <p>Flutter app with YOLOv8 + TFLite for real-time obstacle detection, assisting visually impaired users.</p>
+      </div>
+      <div class="project-card">
+        <h3>Library Booking System</h3>
+        <p>Full-stack system for managing room reservations and item loans using Node.js and MySQL.</p>
+      </div>
+      <div class="project-card">
+        <h3>OTP Verification</h3>
+        <p>Email-based OTP authentication system using PHP + MySQL.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section>
+    <h2>Contact</h2>
+    <div class="contact-icons">
       <a href="mailto:anuwat.os@ku.th"><i class="fas fa-envelope"></i></a>
       <a href="https://github.com/anwos25" target="_blank"><i class="fab fa-github"></i></a>
       <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+      <a href="tel:+66963104349"><i class="fas fa-phone"></i></a>
     </div>
-  </header>
-
-  <div class="container">
-    <section>
-      <h2>About</h2>
-      <p>I am a final-year Computer Science student at Kasetsart University,
-        passionate about Full Stack Development and Data Science. I enjoy building interactive apps
-        and exploring AI/ML technologies.</p>
-    </section>
-
-    <section>
-      <h2>Work Experience</h2>
-      <p><strong>Smart Vision App (Capstone Project)</strong> — Flutter + YOLOv8 + TFLite (2025 – Now)</p>
-      <p><strong>Library Booking System (Mini Project)</strong> — Node.js + MySQL + React Native (2024)</p>
-    </section>
-
-    <section>
-      <h2>Education</h2>
-      <p><strong>Kasetsart University</strong> — Bachelor of Computer Science (2021 – 2026)</p>
-    </section>
-
-    <section>
-      <h2>Skills</h2>
-      <div class="skills">
-        <div class="skill-card"><i class="fab fa-html5"></i><p>HTML</p></div>
-        <div class="skill-card"><i class="fab fa-css3-alt"></i><p>CSS</p></div>
-        <div class="skill-card"><i class="fab fa-js"></i><p>JavaScript</p></div>
-        <div class="skill-card"><i class="fab fa-react"></i><p>React</p></div>
-        <div class="skill-card"><i class="fas fa-mobile-alt"></i><p>Flutter</p></div>
-        <div class="skill-card"><i class="fab fa-node-js"></i><p>Node.js</p></div>
-        <div class="skill-card"><i class="fas fa-database"></i><p>MySQL / PostgreSQL</p></div>
-        <div class="skill-card"><i class="fas fa-brain"></i><p>AI & Data</p></div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Works</h2>
-      <div class="projects">
-        <div class="project-card">
-          <h3>Smart Vision App</h3>
-          <p>Flutter app for visually impaired users. YOLOv8 + TFLite.</p>
-          <div class="tags">Flutter · AI · TFLite</div>
-        </div>
-        <div class="project-card">
-          <h3>Library Booking System</h3>
-          <p>Full-stack system for room booking and item loans.</p>
-          <div class="tags">Node.js · MySQL · React Native</div>
-        </div>
-        <div class="project-card">
-          <h3>OTP Verification</h3>
-          <p>Email-based OTP system using PHP + MySQL.</p>
-          <div class="tags">PHP · MySQL</div>
-        </div>
-      </div>
-    </section>
-  </div>
+  </section>
 
   <footer>
-    © 2025 Anuwat Osot · Portfolio Website
+    © 2025 Anuwat Osot · Portfolio Website | Inspired by Apple & Modern UI
   </footer>
 </body>
 </html>
